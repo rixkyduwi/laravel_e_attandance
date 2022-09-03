@@ -1,4 +1,4 @@
-@extends('layout.base')
+@extends("layout.base")
 @section('container')
 <head>
 <link rel="stylesheet" type="text/css" href="{!! asset('static/vendor/bootstrap/css/bootstrap.min.css') !!}">

@@ -26,7 +26,7 @@
                             <tr>
                                 <th data-sortable=""><a href="#" class="dataTable-sorter">NIP</a></th>
                                 <th data-sortable=""><a href="#" class="dataTable-sorter">Nama</a></th>
-                                <th data-sortable=""><a href="#" class="dataTable-sorter">Penempatan</a></th>
+                                <th data-sortable=""><a href="#" class="dataTable-sorter">Ruangan</a></th>
                                 <th data-sortable=""><a href="#" class="dataTable-sorter">Email</a></th>
                                 <th data-sortable=""><a href="#" class="dataTable-sorter">Gender</a></th>
                                 <th data-sortable=""><a href="#" class="dataTable-sorter">Tanggal Lahir</a></th>
@@ -36,39 +36,38 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
-                                {% for row in karu %}
+                            @forelse($karu as $row)
                                 <tr>
-                                <td>{{ row.0 }}</td>
-                                <td>{{ row.1 }}</td>
-                                <td>{{ row.2 }}</td>
-                                <td>{{ row.3 }}</td>
-                                <td>{{ row.4 }}</td>
-                                <td>{{ row.5 }}</td>
-                                <td>{{ row.6 }}</td>
-                                <td>{{ row.7 }}</td>
+                                <td>{{ $row[0] }}</td>
+                                <td>{{ $row[1] }}</td>
+                                <td>{{ $row[2] }}</td>
+                                <td>{{ $row[3] }}</td>
+                                <td>{{ $row[4] }}</td>
+                                <td>{{ $row[5] }}</td>
+                                <td>{{ $row[6] }}</td>
+                                <td>{{ $row[7] }}</td>
                                 <td>
                                     <div class="col-xl-1 col-md-1"style="text-align: center;text-size-adjust: 20px height: 10px;width: 10px; margin-bottom: 10px;">
                                         <div class="card bg-warning text-white mb-0"style="text-align: center;text-size-adjust: 20px height: 10px;width: 60px;">
-                                            <a href="/Edit/{{row.0}} ">edit
+                                            <a href="/Edit/{{ $row[0] }} ">edit
                                                 <div class="card-body" style="text-align: center;text-size-adjust: 20px; height: 10px;width: 10px;"></div>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-xl-1 col-md-1"style="text-align: center;text-size-adjust: 20px height: 10px;width: 10px;">
                                         <div class="card bg-danger text-white mb-0"style="text-align: center;text-size-adjust: 20px height: 10px;width: 60px;">
-                                            <a href="/Delete/{{row.0}}">delete
+                                            <a href="/Delete/{{ $row[0] }}">delete
                                                 <div class="card-body" style="text-align: center;text-size-adjust: 20px; height: 10px;width: 10px;"></div>
                                             </a>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                                {% else %}
-                                <tr>
-                                    <td colspan="10">Tidak Ada Data</td>
-                                </tr>
-                                {% endfor %}
+                            @empty
+                            <tr>
+                                <td colspan="9"><center><p>Tidak Ada Data</p></center></td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

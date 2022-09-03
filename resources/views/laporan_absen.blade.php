@@ -45,27 +45,27 @@
                         </thead>
                         <tbody>
                             
-                                {% for row in dataabsen %}
-                                {% if row.3 == 'melati'%}
+                                @foreach($dataabsen as $row)
+                                @if($row[3]=="melati")
                                 <tr>
-                                    <td>{{ row.1 }}</td>
-                                    <td>{{ row.2 }}</td>
-                                    <td>{{ row.3 }}</td>
-                                    <td>{{ row.4 }}</td>
-                                    <td>{{ row.5 }}</td>
-                                    <td>{{ row.6 }}</td>
-                                    <td><img src="../../static/assets/absen/{{ row.7 }}" width="100px" height="100px"></td>
-                                    <td>{{ row.8 }}</td>
-                                    <td>{{ row.9 }}</td>
-                                {% if row.10=='tepat waktu'%}
+                                    <td>{{ $row[0] }}</td>
+                                    <td>{{ $row[1] }}</td>
+                                    <td>{{ $row.3 }}</td>
+                                    <td>{{ $row.4 }}</td>
+                                    <td>{{ $row.5 }}</td>
+                                    <td>{{ $row.6 }}</td>
+                                    <td><img src="../../static/assets/absen/{{ $row[7] }}" width="100px" height="100px"></td>
+                                    <td>{{ $row.8 }}</td>
+                                    <td>{{ $row.9 }}</td>
+                                {% if $row.10=='tepat waktu'%}
                                 <td style="color: green;">{{ row.10 }}</td>
-                                {% endif %}
-                                {% if row.10=='telat'%}
+                                @endif
+                                {% if $row.10=='telat'%}
                                 <td style="color: red;">{{ row.10 }}</td>
-                                {% endif %}
+                                @endif
                             </tr>
-                                    {% endif %}
-                                    {% endfor %}
+                                    @endif
+                                    @endforeach
                         </tbody>
                     </table>
                 </div>
