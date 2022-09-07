@@ -44,7 +44,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
                                 @foreach($dataabsen as $row)
                                 @if($row[3]=="melati")
                                 <tr>
